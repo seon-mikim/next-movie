@@ -1,3 +1,4 @@
+import Header from './components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -9,7 +10,6 @@ export const metadata = {
   icons: {
     icon: '/favicon.ico'
   }
-  
 }
 
 export default function RootLayout({
@@ -19,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Header */}
+        <Header/>
+        {/* Nav */}
+        {/* SearchBox */}
+        {children}
+      </body>
     </html>
   )
 }
