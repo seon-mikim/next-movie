@@ -4,8 +4,11 @@ import React from 'react'
 
 export default function Providers({children}: {children: React.ReactNode }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider enableSystem={true} attribute='class'>
+        <div className='dark:bg-neutral-800 bg-opacity-20 dark: text-neutral-200 transition-colors duration-300 min-h-screen
+        select-none'>
         {children}
+        </div>
     </ThemeProvider>
   )
 }
