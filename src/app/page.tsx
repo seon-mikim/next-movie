@@ -20,6 +20,6 @@ export default async function Home({searchParams}:searchParamsProps) {
     throw new Error ("Failed to fetch data")
   }
   return (
-  <div><Results results={results}/></div>
+  <div><Results results={results} /></div>
   )
 }
