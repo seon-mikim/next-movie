@@ -27,7 +27,6 @@ export default function RootLayout({
       <body className={inter.className}>
         
 <Providers>
-  
         {/* Header */}
         <Header/>
         {/* Nav */}
