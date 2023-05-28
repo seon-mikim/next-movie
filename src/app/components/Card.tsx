@@ -20,11 +20,11 @@ export default function Card({key, result}: CardProps) {
             style={{maxWidth:"100%", height:"auto"}}
             />
         <div className='p-2'>
-          <h2 className='truncate text-lg font-bold'>{result.title || result.original_title}</h2>
-          <p className='flex items-center'>{result.release_date} 
+          <h2 className='truncate text-lg font-bold text-neutral-600'>{result.title || result.original_title}</h2>
+          <p className='flex items-center  text-xs text-neutral-400'>{result.release_date} 
             <FiThumbsUp className='h-5 mr-1 ml-3'/> {result.vote_count}
           </p>
-          <p className='line-clamp-2 text-md'>{result.overview}</p>
+          <p className='line-clamp-2 text-sm text-neutral-500'>{result.overview}</p>
         </div>
       </Link>
     </div>
