@@ -1,6 +1,6 @@
 import React from 'react'
-
-interface Result {
+import Card from './Card'
+export interface Result {
     id: number
     original_title: string
     original_language: string
@@ -15,14 +15,14 @@ interface Result {
     vote_count: number
 }
 
-interface Results {
+export interface Results {
     results:Result[]
 }
 export default function Results({results}:Results) {
   return (
     <div>
         {results.map((result) => (
-        <div key={result.id}>{result.original_title}</div>
+        <Card key={result.id} result={result} />
         ))}
     </div>
   )
