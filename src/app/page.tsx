@@ -1,3 +1,5 @@
+import Results from "./components/Results"
+
 const API_KEY = process.env.API_KEY
 
 interface searchParamsProps {
@@ -6,17 +8,18 @@ interface searchParamsProps {
   }
 }
 
-
 export default async function Home({searchParams}:searchParamsProps) {
   const genre = searchParams.genre || "fetchTrending"
 
-  const response = await fetch(`https://api.themoviedb.org/3/
-  ${genre === "fetchTopRated"?"movie/top_rated":"trending/all/week"}
-  ?api_key=${API_KEY}&language=en_US&page=1`)
+  const response = await fetch(`https://api.themoviedb.org/3/${genre === "fetchTopRated"?"movie/top_rated":"trending/all/week"}?api_key=${API_KEY}&language=en_US&page=1`,{next: { revalidate: 10000 } } )
   
+  const data = await response.json()
+  const results = data.results
+  
+  if(!response.ok) {
+    throw new Error ("Failed to fetch data")
+  }
   return (
-    <div className='max-w-6xl mx-auto space-x-4'>
-      <h1 className='text-2xl font-medium text-cyan-600'>HOME</h1> 
-    </div>
+  <div><Results results={results}/></div>
   )
 }
