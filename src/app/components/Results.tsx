@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+
 export interface Result {
     id: number
     original_title: string
